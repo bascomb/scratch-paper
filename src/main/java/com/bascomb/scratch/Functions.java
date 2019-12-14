@@ -5,15 +5,15 @@ import java.util.Arrays;
 /**
  *
  */
-public class Example {
+public class Functions {
 
     //Concat the given strings using Java 8
-    public String concatString(String...strings) {
+    public static String concat(String...strings) {
         return Arrays.asList(strings).stream().reduce("", (a,b) -> a + b);
     }
 
-    //Concat the given strings using Java 8
-    public String concatStringMethodRef(String...strings) {
+    //Concat the given strings using Java 8 with method reference
+    public static String concatImpl2(String...strings) {
         return Arrays.asList(strings).stream().reduce("", String::concat);
     }
 
