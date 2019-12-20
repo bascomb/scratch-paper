@@ -18,22 +18,28 @@ public class FunctionsTest {
     @Test
     public void countEmptyCollection() {
         collection = new ArrayList<Object>();
+        long expected = 0L;
+        long count = Functions.count(collection, Integer.class);
 
-        Assertions.assertThat(Functions.count(collection, new Integer(1))).isEqualTo(0L);
+        Assertions.assertThat(count).isEqualTo(expected);
 
         collection.stream().forEach(logger::info);
-        logger.info("Functions.count(collection, T) -> " + Functions.count(collection, new Integer(1)));
+        logger.info("Expected " + expected);
+        logger.info("Functions.count(collection, T) -> " + count);
     }
 
     @Test
     public void countIntegersInStringCollection() {
         collection = new ArrayList<Object>();
         collection.add(new String("Not an Integer"));
+        long expected = 0L;
+        long count = Functions.count(collection, Integer.class);
 
-        Assertions.assertThat(Functions.count(collection, new Integer(1))).isEqualTo(0L);
+        Assertions.assertThat(count).isEqualTo(expected);
 
         collection.stream().forEach(logger::info);
-        logger.info("Functions.count(collection, T) -> " + Functions.count(collection, new Integer(1)));
+        logger.info("Expected " + expected);
+        logger.info("Functions.count(collection, T) -> " + count);
     }
 
     @Test
@@ -41,10 +47,13 @@ public class FunctionsTest {
         collection = new ArrayList<Object>();
         collection.add(0);
         collection.add(1);
+        long expected = 2L;
+        long count = Functions.count(collection, Integer.class);
 
-        Assertions.assertThat(Functions.count(collection, new Integer(1))).isEqualTo(collection.size());
+        Assertions.assertThat(count).isEqualTo(expected);
 
         collection.stream().forEach(logger::info);
-        logger.info("Functions.count(collection, T) -> " + Functions.count(collection, new Integer(1)));
+        logger.info("Expected " + expected);
+        logger.info("Functions.count(collection, T) -> " + count);
     }
 }

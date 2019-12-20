@@ -20,8 +20,7 @@ public class Functions {
 
     //Write a generic method to count the number of elements in a collection that have a specific property (for example, odd integers, prime numbers, palindromes).
     public static <T> long count(Collection<?> collection, T property) {
-        Class propertyClass = property.getClass();
-        return collection.stream().filter(item -> item.getClass().equals(propertyClass)).count();
+        return collection.stream().filter(item -> item.getClass().equals(property)).count();
     }
 
 }
